@@ -1,0 +1,690 @@
+
+ /*1 google font*/
+ @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+ 
+  /*2base styles*/
+ body{margin: 0;
+    min-height: 100vh;
+    background-image: url('../images/eco-green.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'DM Sans', sans-serif;}
+
+ h1 {  color:  black;
+     font-size: 2em;
+     font-weight: bold;
+     font-family: 'DM Sans', sans-serif; }
+
+ .fluid{width: 100%;}
+
+ /*3 header and navigation*/
+
+ .site-header {
+    background-color: white;
+    border-bottom: 1px solid lightgrey;
+    padding: 12px 0;}
+
+.brand-group{display:flex;
+    align-items: center;}
+
+.logo-img{width: 90px;
+    height: 90px;
+    object-fit: contain;}
+
+nav a { color: black;
+    font-weight:bold;
+    text-decoration: none;}
+ .header-container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+
+.nav-links-group{
+    display:flex;
+    align-items:center;
+    gap: 30px;
+    margin-left: 40px;
+    flex: 1;
+    justify-content: space-between;}
+
+.btn-green
+   {background-color: green;
+    color:white;
+    padding: 10px 24px;
+    font-weight:bold;
+    border-radius: 8px;
+    display:inline-block;
+    text-decoration: none;
+margin-right: 50px;}
+
+ /*4 hero banner & buttons*/
+
+.hero-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    margin:20px 0;
+    border-radius: 4px;}
+
+.hero-banner h2 {
+    font-size: 2em;
+    font-weight: bold;
+    font-style: italic;
+    color: midnightblue;}
+
+.hero-banner p{font-size: 25px;
+    font-style: italic;
+    font-weight: bold;
+    color: midnightblue;}
+
+.hero-btn-grp{
+    display: flex;
+        justify-content:center;
+        gap:80px;
+    margin-top: 40px;}
+
+.hero-btn{
+        background-color: green;
+         color:white;
+        padding:10px 24px;
+        font-weight: bold;
+        text-decoration: none;}
+
+ /*5 search section and table*/
+
+.search-table-row{display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    width: 100%;
+    margin:20px 0;
+    padding: 0 20px;}
+
+.search-table-row .search-section
+{flex: 1;
+max-width: 400px;
+margin:0;}
+
+.search-section{
+    display :flex;
+    justify-content: center;
+    gap: 15px;
+    align-items:center;
+   padding:25px 0;}
+
+.search-section h3{font-size: 20px;
+font-weight: bold;
+margin: 0;
+color:midnightblue;}
+
+.search-box{display:flex;
+    align-items: center;
+    gap: 10px;}
+
+.search-box input{display:inline-block;
+outline: none;
+background: white;
+font-size: 20px;
+font-family: 'DM Sans', sans-serif;
+cursor: pointer;}
+
+.data-table{width:420px;
+border-collapse:collapse;
+text-align: left;
+background-color:white;
+font-size: 16px;
+margin-top: 60px;
+margin-bottom: 50px;}
+
+.data-table th{background-color: midnightblue ;
+color:white;
+border:1px solid black;
+padding: 8px 10px;
+font-size: 15px;   }
+
+.data-table td{
+    border: 1px solid black;
+    padding: 8px 10px;
+    font-size: 15px;
+    color: black;
+    width:30%}
+
+.data-table tbody tr{border-bottom:1px solid lightgray;
+                    transition:background-color 0.2s ease;}
+
+.data-table tbody tr:hover{
+    background-color:aliceblue;}
+
+/*6 acknowledgment box & footer*/
+
+.ack-box {
+    background-color: gainsboro;
+    border-left: 14px solid mediumseagreen;
+    padding:12px 20px;
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 20px;}
+
+.ack-box p{margin: 0;
+font-size: 18px;
+font-weight: bold;
+color: black;
+font-style: normal;
+font-family: 'DM Sans', sans-serif;}
+
+.site-footer{background-color: midnightblue;
+    width: 100%;
+    margin-top:10px;
+    padding:20px 0;
+    text-align: center;
+    margin-bottom: 0px;}
+
+.footer-container{max-width: 960px;
+margin: 0 auto ;
+text-align: center;}
+
+.footer-container p{
+    color:white ;
+   font-size: 15px;
+   font-style:normal ;
+   font-weight: normal ;
+   margin: 6px 0;}
+
+.footer-container a{color: mediumseagreen ;
+    text-decoration: none;
+    font-style: normal ;
+    font-weight: normal ;}
+
+.footer-container a:hover{
+    text-decoration: underline;}
+
+/*7 Accessibility & utilities*/
+
+.visually-hidden{position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;}
+
+a:focus, button:focus, input:focus{
+    outline: 3px solid mediumseagreen;
+    outline-offset: 2px;}
+
+/*8 Responsive media queries*/
+
+@media screen and (max-width: 500px){
+.nav-links-group{
+    flex-direction:column;
+    gap:15px;
+    margin-left: 0;}
+
+.header-container{flex-direction:column;
+                  text-align: center;}
+                
+.hero-btn-grp{flex-direction: column;
+              gap: 20px;}
+            
+.search-table-row{
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 10px;}
+
+.data-table{width: 100%;
+            margin-top: 20px;}}
+
+/* ====== Apply.html CSS ====== */
+
+/*  aligning header 1 and 2 to the center*/
+
+h2 {
+    text-align: center;
+}
+
+.apply-page main,
+.apply-page .content-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* adds a curve and spacing inside the container and outside */
+.apply-page form {
+    background-color: gainsboro;
+    border-radius: 20px;
+    padding: 30px 40px;
+    margin: 30px auto;
+    max-width: 700px;
+}
+
+/* container is flexible and allows the
+info to be row or column  */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+/* styling of each label text */
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 15px;
+    color: black;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+/* textarea dont have a default green because it doesnt support pattern
+attribute and only pattern validated fields get the green outline */
+.form-group textarea {
+    padding: 10px 12px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    background-color: white;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+/* adds curves to the border and padding to gender  */
+fieldset.form-group {
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 14px 14px;
+    background-color: white;
+}
+
+/* legends are bolded */
+fieldset.form-group legend {
+    font-weight: bold;
+    color: black;
+    padding: 0 6px;
+}
+
+/* label for gender and skill list are slightly bolded */
+fieldset.form-group label {
+    display: inline;
+    font-weight: normal;
+    margin-right: 20px;
+    color: black;
+}
+
+/* navy color to the radio and checkbox */
+fieldset.form-group input[type="radio"],
+fieldset.form-group input[type="checkbox"] {
+    margin-right: 6px;
+    accent-color: navy;
+}
+
+.gender-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: 14px 14px;
+    background-color: white;
+}
+
+.gender-fieldset legend {
+    font-weight: bold;
+    color: black;
+    padding: 0 6px;
+}
+
+.skills-fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-item label {
+    margin: 0;
+}
+
+.form-group input[type="submit"],
+.form-group input[type="reset"] {
+    padding: 10px 28px;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.form-group input[type="submit"] {
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: seagreen;
+}
+
+.form-group input[type="reset"] {
+    background-color: white;
+    color: midnightblue;
+    border: 1px solid lightgray;
+}
+
+.form-group input[type="reset"]:hover {
+    background-color: aliceblue;
+}
+
+/* ====== About.html CSS ===== */
+/*General*/
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin:0;
+    font-family: Arial, snas-serif;
+    background-color: #f5f5f5;
+    color: black
+}
+
+/*Header*/
+header{
+    background-color: white;
+    padding: 12px 0px;
+    border-bottom:1px solid #ddd;
+}
+
+.navbar{
+    max-width: 1100px;
+    margin:0 auto;
+
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.center-img {
+  display: block;       
+  margin-left: auto;    
+  margin-right: auto;
+  width: 300px;         
+}
+
+/*Logo+Company Name4*/
+.logo{
+    display:flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img{
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+}
+
+.logo span{
+    font-size:38px;
+    font-weight: 800;
+    color:black;
+}
+
+/*LOGO SHAPE*/
+.logo-shape{
+    width:55px;
+    height: 55px;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        to right,
+        #26343a 0%,
+        #26343a 45%,
+        #43c77a 45%,
+        #43c77a 65%,
+        #26343a 65%,
+        #26343a 100%,
+    );
+}
+
+/* Menu*/
+nav{
+    display:flex;
+    align-items:center;
+    gap: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color:black;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/*Apply Now Button*/
+.apply-button{
+    text-decoration:none;
+    background-color:#10B981;
+    color:white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size:17px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/*Main Content*/
+
+main{
+    width: 90%;
+    max-width: 1000px;
+    margin: 25px auto;
+}
+
+/*About title*/
+.about-title-box{
+    color: black;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px 0;
+}
+
+.about-title-box h1{
+    margin: 0 0 10px 0;
+    font-size: 28px;
+}
+
+.about-title-box h2{
+    margin: 0;
+    font-size: 20px;
+    font-style:italic;
+    font-weight: bold;
+}
+
+/*Section title*/
+.section-title{
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+/*Mission*/
+.mission h2{
+    font-size: 24px;
+}
+
+.mission-box{
+    background-color: #e5e5e5;
+    padding: 25px;
+    min-height: 100px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.mission-box p{
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/*Grey boxes*/
+.grey-box{
+    background-color: #e5e5e5;
+    padding:20px 30px;
+    margin-top: 10px;
+    border-radius: 3px;
+    line-height: 1.6;
+}
+
+/*Definition list*/
+dt{
+    font-weight: bold;
+    margin-top: 15px;
+    color: black;
+}
+
+dd{
+    margin-left: 20px;
+}
+
+/*Group photo*/
+.group-photo{
+    background-color: #e5e5e5;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+}
+
+.group-photo img{
+    max-width: 100%;
+    height:auto;
+}
+
+.group-photo figcaption{
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/*Table*/
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 10px;
+}
+
+caption{
+    background-color:#6cf3b2;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+}
+
+th{
+    background-color: #62b286;
+    font-weight: bold;
+}
+
+th,
+td{
+    border:1px solod #a0e0c7;
+    padding: 15px;
+    text-align: left;
+}
+
+/*Footer*/
+footer{
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: navy;
+    color:white;
+}
+
+
+
+/* ====== jobs.html CSS ===== */
+
+/* this is the sidebox with recquirement 25% width */
+aside{
+    float: right;
+    width: 25%;
+    background-color: gainsboro;
+    border: 2px solid midnightblue;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 5px gray;
+}
+
+/* This is job section box styling */
+.job_section {
+    float: left;
+    width: 60%;
+    background-color: gainsboro;
+    border: 8px solid mediumseagreen;
+    box-sizing: border-box;
+    box-shadow: 10px 10px 5px gray;
+    margin-bottom: 30px;
+}
+
+/* This is to style the unorder list into square shape */
+ul {
+    list-style-type : square;
+}
+/* This is to change the word colour of all paragraphs into black color */
+ p {
+    color: black;
+}
+
+/* The word job description to be in center  */
+#job_description{
+    text-align: center;
+}
+
+/* This is to underline and situated on left side to all the heading word in job section and aside */
+.heading {
+    text-decoration: underline;
+    text-align: left;
+}
+
+.centered_heading{
+    text-decoration: overline;
+    text-align: center;
+    font-style: italic;
+}
+
+/* This is to clear the float box so that acknowledge part can situated at bottom */
+.ack{
+     background-color: gainsboro;
+    border-left: 14px solid mediumseagreen;
+    padding:12px 20px;
+    width:100%;
+    margin-top: 25px;
+    margin-bottom:40px;
+    clear:both;
+}
+
+
+
