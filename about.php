@@ -44,28 +44,37 @@ include "header.inc";
         </div>
     </section>
         
-    <!--Member Contributions-->
+    <!-- Member Contributions -->
     <section>
-        <h2 class="section-title">Group Members &amp; Contributions</h2>
+        <h2 class="section-title">Group Members & Contributions</h2>
 
         <div class="grey-box">
-            <dl><strong>
-                <dt>Member 1: Vishnu</dt>
-                <dd>Individual responsibility: Created Index page</dd>
-                <dd>Shared responsibility: Help with designed the Home page, Website layout, CSS styling</dd>
+            <?php
+            require_once("settings.php");
 
-                <dt>Member 2: Navya</dt>
-                <dd>Individual responsibility: Created Job page</dd>
-                <dd>Shared responsibility: Help with designed the Home page, Website layout, CSS styling</dd>
+            if ($conn) {
+                $query = "SELECT * FROM about";
+                $result = mysqli_query($conn, $query);
 
-                <dt>Member 3: Chong Yee San</dt>
-                <dd>Individual responsibility: Created Apply page and CSS</dd>
-                <dd>Team Leader: Coordinates deadlines, Submit final ZIP files, and Update Jira board</dd>
+                if ($result && mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<h3>" . htmlspecialchars($row['member_name']) . "</h3>";
 
-                <dt>Member 4: Tiang Yong Wei</dt>
-                <dd>Individual responsibility: Created About page</dd>
-                <dd>Shared responsibility: CSS styling</dd>
-            </strong></dl>
+                        echo "<p><strong>Project 1:</strong> " .
+                            htmlspecialchars($row['project1_contribution']) . "</p>";
+
+                        echo "<p><strong>Project 2:</strong> " .
+                            htmlspecialchars($row['project2_contribution']) . "</p>";
+                    }
+                } else {
+                    echo "<p>No member contributions available.</p>";
+                }
+
+                mysqli_close($conn);
+            } else {
+                echo "<p>Unable to connect to database.</p>";
+            }
+            ?>
         </div>
     </section>
 
