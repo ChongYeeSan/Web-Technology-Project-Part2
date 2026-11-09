@@ -1,41 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link href="css/styles.css" rel="stylesheet">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ecopower renewable energy solutions and career website."  />
-  <meta name="keywords" content="HTML5, renewable energy, Ecopower, jobs" />
-  <meta name="author" content="Group 03 Team Members"  />
-  <title>Ecopower - Home</title>
-
-<style>.hero-banner h2 { text-shadow: 2px 2px 4px rgba(5, 5, 2, 0.5); }</style>
-
-</head>
-
-<body>
-  
-  <header class="site-header fluid">
-    <div class="header-container navbar ">
-    <div class="brand-group">
-
-    <img src="images/logo.png" alt="Ecopower Logo" class="logo-img">
-    <h1 class="brand-title" style="color:black; margin:0;">Ecopower</h1>
-    </div>
-
-     <nav  class="nav-links-group">
-        <a href="index.html">Home</a>
-        <a href="jobs.html">Job Description</a> 
-        <a href="apply.html">Apply</a> 
-        <a href="about.html">About</a> 
-  
-    
-      <a href="apply.html" class="btn-green">Apply Now!</a>
-    
-     </nav>
-    </div>
-  </header>
-
+<?php
+$page_title = "Ecopower - Home";
+include("inc/header.inc");
+?>
 
     <section class="hero-banner">
       <h2><em>"Powering a Cleaner Tomorrow through smart technology"</em></h2>
