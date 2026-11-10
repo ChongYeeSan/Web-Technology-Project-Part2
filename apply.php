@@ -1,7 +1,7 @@
     <?php
     $title = "Apply";
     $body_class = "apply-page";
-    include "header.inc";
+    include ('inc/header.inc');
 
     ?>
 
@@ -127,4 +127,6 @@
         </form>
     </main> 
 
-    <?php include "footer.inc"; ?>
+    <?php 
+    include ('inc/footer.inc'); 
+    ?>
