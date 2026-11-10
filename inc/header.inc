@@ -26,7 +26,8 @@
      <nav  class="nav-links-group">
         <a href="index.php">Home</a>
         <a href="jobs.php">Job Description</a> 
-        <a href="apply.php">Apply</a> 
+        <a href="apply.php">Apply</a>
+        <a href="manage.php">Manage</a> 
         <a href="about.php">About</a> 
   
     
