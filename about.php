@@ -1,7 +1,7 @@
 <?php
 $title = "About EcoPower";
 $body_class = "about-page";
-include "header.inc";
+include ('inc/header.inc');
 ?>
 
 <main>
@@ -154,5 +154,5 @@ include "header.inc";
 </main>
 
 <?php
-include "footer.inc";
+include ('inc/footer.inc');
 ?>
