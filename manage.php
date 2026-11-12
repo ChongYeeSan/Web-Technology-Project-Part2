@@ -41,10 +41,10 @@ include("inc/header.inc");
     
     <form method="post" action="manage.php">
         <label for="username">Username:</label>
-        <input type="text" name="username"required><br>
+        <input type="text" name="username"><br>
 
         <label for="password">Password:</label>
-        <input type="password"name="password"required><br>
+        <input type="password"name="password"><br>
 
         <input type="submit"value="Login">
     </form>
@@ -59,7 +59,7 @@ include("inc/header.inc");
     $message = "";
 
     if (isset($_POST['update_status'])) {
-        $eoi_id = $_POST['eoi_id'];
+        $eoi_id = (int)$_POST['eoi_id'];
         $new_status = $_POST['status'];
         $update_query = "UPDATE eoi SET status = '$new_status' WHERE EOInumber = $eoi_id";
         mysqli_query($dbconn, $update_query);

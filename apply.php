@@ -1,20 +1,23 @@
     <?php
-    $title = "Apply";
+    $page_title = "Apply";
     $body_class = "apply-page";
     include ('inc/header.inc');
 
+    $job_ref_value = "";
+    if (isset($_GET["job_ref"])) {
+        $job_ref_value = htmlspecialchars(trim($_GET["job_ref"]));
+    }
     ?>
 
     <main>
 
-        <h2 style="margin-bottom: 4px;">Submit Your Application</h2>
+        <h2>Submit Your Application</h2>
         <h2>Start Your Career in Sustainable Energy</h2>
-
         <br>
         <form id="application-form" class="form-group" action="process_eoi.php" method="post" novalidate>
             <div class="form-group">
                 <label for="jrefer">Job reference number:</label>
-                <input type="text" id="jrefer" name="jrefer">
+                <input type="text" id="jrefer" name="jrefer" value="<?php echo $job_ref_value; ?>">
             </div>
             <br>
             <div class="form-group">

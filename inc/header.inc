@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body<?php if (!empty($body_class)) { echo ' class="' . htmlspecialchars($body_class) . '"'; } ?>>
   
   <header class="site-header fluid">
     <div class="header-container navbar ">

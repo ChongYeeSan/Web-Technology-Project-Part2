@@ -91,8 +91,8 @@ if (!preg_match("/^[0-9]{8,12}$/", $phone)) {
 }
  
 /* Page output and errors */
-$title = "Application Result";
-// include "header.inc"; //outputs the top of the page
+$page_title = "Application Result";
+include "inc/header.inc"; //outputs the top of the page
 echo "<main>";
  
 if (!empty($errors)) {
@@ -152,5 +152,5 @@ if (!empty($errors)) {
 }
 // closing
 echo "</main>";
-// include "footer.inc";
+include "inc/footer.inc";
 ?>
