@@ -7,7 +7,6 @@ if (!$dbconn) {
     die("<p>Database connection failure.</p>");
 }
 
-
 if (isset($_GET['logout'])) {
     session_destroy();
     header("location: manage.php");
