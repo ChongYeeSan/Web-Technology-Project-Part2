@@ -50,7 +50,7 @@ include("inc/header.inc");
   <section class="search-section">
   
   <h3>Search projects and roles ! :</h3>
-    <form action="jobs.html" method ="get" class="search-box">
+    <form action="search.php" method ="get" class="search-box">
     <label for="search-input" class="visually-hidden">Search projects and roles</label>
     <input type="text" id="search-input" name="query" placeholder="Search" >
         <button type="submit" class="hero-btn">Search</button>
