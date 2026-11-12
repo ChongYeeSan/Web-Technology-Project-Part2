@@ -46,7 +46,8 @@ include("inc/header.inc");
         <label for="password">Password:</label>
         <input type="password"name="password"><br>
 
-        <input type="submit"value="Login">
+        <input type="submit" value="Login">
+        <a href="manage.php">Reset</a>
     </form>
 <?php else: ?> 
     <p>Welcome, <?php echo $_SESSION['user']; ?>
@@ -88,7 +89,7 @@ include("inc/header.inc");
     }elseif ($applicant_name !== "") {
         $query = "SELECT * FROM eoi WHERE first_name LIKE '%$applicant_name%' OR last_name LIKE '%$applicant_name%' ORDER BY $sort ASC";
     } else {
-        $query = "SELECT *FROM eoi ORDER BY $sort ASC";
+        $query = "SELECT * FROM eoi ORDER BY $sort ASC";
     }
 
     $result = mysqli_query($dbconn, $query);
