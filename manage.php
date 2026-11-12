@@ -7,7 +7,6 @@ if (!$dbconn) {
     die("<p>Database connection failure.</p>");
 }
 
-
 if (isset($_GET['logout'])) {
     session_destroy();
     header("location: manage.php");
@@ -31,11 +30,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 include("inc/header.inc");
 ?>
 
-<h2>HR Manager</h2>
+<h2 class="centered_heading">HR Manager</h2>
 
 <?php if (!isset($_SESSION['user'])): ?>
     <!-- Login Form -->
-     <h3>Manager Login</h3>
+     <h3 id="job_description">Manager Login</h3>
      <?php if ($login_error !== ""): ?>
         <p><?php echo $login_error; ?></p>
     <?php endif; ?>
@@ -51,7 +50,7 @@ include("inc/header.inc");
     </form>
 <?php else: ?> 
     <p>Welcome, <?php echo $_SESSION['user']; ?>
-    <div style="text-align: right;">
+    <div style="display: inline-block; background-color: mediumseagreen; padding: 2px; border-radius: 5px;">
         <a href="manage.php?logout=true">Logout</a></p>
     </div>
     <hr>
@@ -96,7 +95,7 @@ include("inc/header.inc");
     ?>
 
     <!-- Search / Filter form  -->
-     <h3>Search and Sort EOI</h3>
+     <h3 class="heading">Search and Sort EOI</h3>
      <form method="get" action="manage.php">
         <label for="job_ref">Job Reference:</label>
         <input type="text" id="job_ref" name="job_ref" value="<?php echo ($job_ref); ?>">
@@ -119,7 +118,7 @@ include("inc/header.inc");
      <br>
 
      <!-- Delete Form  -->
-      <h3>Delete by Jn Reference</h3>
+      <h3 class="heading">Delete by Job Reference</h3>
       <form method="post" action="manage.php">
         <label for="del_job_ref">Job Reference:</label>
         <input type="text" id="del_job_ref" name="del_job_ref" required>
@@ -128,7 +127,7 @@ include("inc/header.inc");
       <br>
 
       <!-- Results -->
-       <h3>Expressions of Interest List</h3>
+       <h3 class="heading">Expressions of Interest List</h3>
        <?php
        if ($result) {
         if (mysqli_num_rows($result) > 0) {
@@ -139,7 +138,7 @@ include("inc/header.inc");
                 echo "<tr>";
                 echo "<td>" . $row['EOInumber'] . "</td>";
                 echo "<td>" . $row['job_ref'] . "</td>";
-                echo "<td>" . $row['first_name'] . "</td>";
+                echo "<td>" . $row['first_name'] . " " . $row['last_name'] .  "</td>";
                 echo "<td>" . $row['email'] . "</td>";
                 echo "<td>" . $row['phone'] . "</td>";
                 echo "<td>" . $row['skills'] . "</td>";
@@ -166,6 +165,10 @@ include("inc/header.inc");
        }
        ?>
 <?php endif; ?>
+
+
+<div style="clear: both; height: 400px;"></div>
+
 
 <?php
 mysqli_close($dbconn);
