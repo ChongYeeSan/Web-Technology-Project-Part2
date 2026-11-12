@@ -86,6 +86,10 @@ include('inc/header.inc');
     } else {
         echo '<p>Unable to connect to the database.</p>';
     }
+    ?>
 
+    <div style="clear: both;"></div>
+
+    <?php
     include('inc/footer.inc');
     ?>
