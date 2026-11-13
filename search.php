@@ -63,11 +63,16 @@ function highlight($text, $words) {
   }
   foreach ($words as $word) {
     if (trim($word) !== "") {
-      $safe_text = preg_replace('/(' . preg_quote($word, '/') . ')/ui', '<span class="highlight">$1</span>', $safe_text);
-$quoted_word = preg_quote($word, '/');
-$flexible_word= str_replace(['\,', ','],',?', $quoted_word);
-     
+      $quoted_word = preg_quote($word, '/');
+      $flexible_word = str_replace("'", "(?:'|&#039;|&apos;)", $quoted_word);
 
+      if(is_numeric(str_replace(',', '', $word))) {
+        $flexible_word = implode(',?', str_split($flexible_word));
+        $pattern = '/(' . $flexible_word . ')/ui';
+      } else {
+        $pattern = '/\b(' . $flexible_word . ')\b/ui';
+      }
+$safe_text = preg_replace($pattern, '<span class="highlight">$1</span>', $safe_text);
 
     }
   }
