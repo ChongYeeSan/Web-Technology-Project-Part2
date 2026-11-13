@@ -3,7 +3,13 @@ require_once("settings.php");
 $title = "Search Results";
 include('inc/header.inc');
 ?>
-
+<style>
+  span.highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  </style>
+  
 <main>
   <h2 id="job_description">Search Results</h2>
   <div class="search-container">
