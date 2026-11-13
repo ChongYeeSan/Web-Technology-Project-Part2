@@ -34,7 +34,7 @@ include("inc/header.inc");
 
 <?php if (!isset($_SESSION['user'])): ?>
     <!-- Login Form -->
-     <h3 id="job_description">Manager Login</h3>
+     <h3>Manager Login</h3>
      <?php if ($login_error !== ""): ?>
         <p><?php echo $login_error; ?></p>
     <?php endif; ?>

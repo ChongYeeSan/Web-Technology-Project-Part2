@@ -57,20 +57,20 @@ include('inc/header.inc');
 
                 echo '<h3 class="heading">Key Responsibilities:</h3>';
                 echo '<ul>';
-                $resp_items = explode('. ', $row['responsibilities']);
+                $resp_items = explode("\n", $row['responsibilities']);
                 foreach ($resp_items as $item) {
                     if (trim($item) !== "") {
-                        echo '<li>' . trim($item) . '.</li>';
+                        echo '<li>' . trim($item) . '</li>';
                     }
                 }
                 echo '</ul>';
 
                 echo '<h3>Essential and Preferable Requirements:</h3>';
                 echo '<ol>';
-                $req_items = explode('. ', $row['requirements']);
+                $req_items = explode("\n", $row['requirements']);
                 foreach ($req_items as $item) {
                     if (trim($item) !== "") {
-                        echo '<li>' . trim($item) . '.</li>';
+                        echo '<li>' . trim($item) . '</li>';
                     }
                 }
                 echo '</ol>';
