@@ -5,11 +5,11 @@ include('inc/header.inc');
 ?>
 <style>
   span.highlight {
-    background-color: yellow;
+    background-color: yellow !important;
     font-weight: bold;
   }
   </style>
-  
+
 <main>
   <h2 id="job_description">Search Results</h2>
   <div class="search-container">
@@ -27,12 +27,13 @@ include('inc/header.inc');
     $search = "";
     if (isset($_GET['query'])) {
       $search = trim($_GET['query']);
-    }   
+    } 
+    $words_array=[];
  if($search !== ""){
-  $word=preg_split('/\s+/', $search);
+  $words_array=preg_split('/\s+/', $search);
   $condition = [];
-  foreach ($word as $word) {
-    $word_escaped = mysqli_real_escape_string($dbconn, $word);
+  foreach ($words_array as $w) {
+    $word_escaped = mysqli_real_escape_string($dbconn, $w);
     $condition[] = "(
     title LIKE '%$word_escaped%' OR
     job_ref LIKE '%$word_escaped%'OR
@@ -45,29 +46,56 @@ include('inc/header.inc');
     )";
   }
 
-   $where_clause = implode(" AND ", $condition);
+   $where_clause = implode(" OR ", $condition);
    $query = "SELECT * FROM jobs WHERE $where_clause";
-   echo'<p class="centered_heading">Showing results for <strong>' . htmlspecialchars($search) . '</strong></p>';
+
  }else{
   $query = "SELECT * FROM jobs";
  }
 
  $result = mysqli_query($dbconn, $query);
+
+
+function highlight($text, $words) {
+  $safe_text = htmlspecialchars($text);
+  if(empty($words)) {
+    return $safe_text;
+  }
+  foreach ($words as $word) {
+    if (trim($word) !== "") {
+      $safe_text = preg_replace('/(' . preg_quote($word, '/') . ')/ui', '<span class="highlight">$1</span>', $safe_text);
+$quoted_word = preg_quote($word, '/');
+$flexible_word= str_replace(['\,', ','],',?', $quoted_word);
+     
+
+
+    }
+  }
+  return $safe_text;
+}
+
+
+
+
+
  if ($result && mysqli_num_rows($result) > 0) {
+if ($search!==""){
+  echo '<p class="centered_heading">Search results for <strong>' . htmlspecialchars($search) . '</strong></p>';
+ }
   while ($row = mysqli_fetch_assoc($result)) {
     echo '<section class="job_section">';
-    echo '<h2 class="heading">' . htmlspecialchars($row['title']) . '</h2>';
-    echo '<p>Reference Number: ' . htmlspecialchars($row['job_ref']) . '</p>';
-    echo '<p>Salary: ' . htmlspecialchars($row['salary']) . '</p>';
-    echo '<p>Position Reports To: ' . htmlspecialchars($row['reports_to']) . '</p>';
+    echo '<h2 class="heading">' . highlight($row['title'], $words_array) . '</h2>';
+    echo '<p>Reference Number: ' . highlight($row['job_ref'], $words_array) . '</p>';
+    echo '<p>Salary: ' . highlight($row['salary'], $words_array) . '</p>';
+    echo '<p>Position Reports To: ' . highlight($row['reports_to'], $words_array) . '</p>';
     echo '<h3 class="heading">Description:</h3>';
-    echo '<p> ' . htmlspecialchars($row['description']) . '</p>';
+    echo '<p> ' . highlight($row['description'], $words_array) . '</p>';
     echo '<h3 class="heading">Key Responsibilities:</h3>';
     echo '<ul>';
     $resp_items = explode("\n", $row['responsibilities']);
     foreach ($resp_items as $item) {
       if (trim($item) !== "") {
-        echo '<li>' . htmlspecialchars(trim($item)) . '</li>';
+        echo '<li>' . highlight(trim($item), $words_array) . '</li>';
       }
     }
     echo '</ul>'; 
@@ -77,7 +105,7 @@ include('inc/header.inc');
     $req_items = explode("\n", $row['requirements']);
     foreach ($req_items as $item) {
       if (trim($item) !== "") {
-        echo '<li>' . htmlspecialchars(trim($item)) . '</li>';
+        echo '<li>' . highlight(trim($item), $words_array) . '</li>';
       }
     }
     echo '</ol>';
@@ -94,7 +122,7 @@ include('inc/header.inc');
 ?>
 
 <div style="clear: both;"></div>
-<p class="centered_heading"><a href="index.php">Back to Home | <a href="jobs.php">View all jobs</a></p>
+<p class="centered_heading"><a href="index.php">Back to Home</a> | <a href="jobs.php">View all jobs</a></p>
 </main>
 
 <?php
@@ -102,5 +130,3 @@ include('inc/footer.inc');
 ?>
 
 
-
-  
