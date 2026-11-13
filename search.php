@@ -8,6 +8,18 @@ include('inc/header.inc');
     background-color: yellow !important;
     font-weight: bold;
   }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  main {
+    flex: 1; /* Expands to fill empty space so the footer stays at the bottom */
+  }
   </style>
 
 <main>
@@ -28,6 +40,22 @@ include('inc/header.inc');
     if (isset($_GET['query'])) {
       $search = trim($_GET['query']);
     } 
+$lower_search = strtolower($search);
+if($lower_search === "job" || $lower_search === "jobs" || $lower_search === "view jobs" || $lower_search === "vacancy" || $lower_search === "job listings" || $lower_search === "job openings" || $lower_search === "job opportunities" || $lower_search === "job vacancies" || $lower_search === "job positions" || $lower_search === "job roles" || $lower_search === "job descriptions" || $lower_search === "job details" || $lower_search === "job information") {
+mysqli_close($dbconn);
+header("Location: jobs.php");
+exit();
+}elseif($lower_search === "apply" || $lower_search === "apply for job" || $lower_search === "application" || $lower_search === "apply for a job" || $lower_search === "apply job" || $lower_search === "apply for a role" || $lower_search === "apply for a vacancy" || $lower_search === "apply for a job position" || $lower_search === "apply for a job role" || $lower_search === "apply for a job vacancy") {
+mysqli_close($dbconn);
+header("Location: apply.php");
+exit();
+}elseif($lower_search === "about" || $lower_search === "about us" || $lower_search === "about the company" || $lower_search === "company information" || $lower_search === "company details" || $lower_search === "company profile" || $lower_search === "company overview" || $lower_search === "company background" || $lower_search === "company history" || $lower_search === "about company" || $lower_search === "company mission" || $lower_search === "company vision" || $lower_search === "company values" || $lower_search === "company culture" || $lower_search === "company team" || $lower_search === "company management" ) { 
+mysqli_close($dbconn);
+header("Location: about.php");
+exit();
+}
+
+
     $words_array=[];
  if($search !== ""){
   $words_array=preg_split('/\s+/', $search);
@@ -70,7 +98,7 @@ function highlight($text, $words) {
         $flexible_word = implode(',?', str_split($flexible_word));
         $pattern = '/(' . $flexible_word . ')/ui';
       } else {
-        $pattern = '/\b(' . $flexible_word . ')\b/ui';
+        $pattern = '/(' . $flexible_word . ')/ui';
       }
 $safe_text = preg_replace($pattern, '<span class="highlight">$1</span>', $safe_text);
 
@@ -118,7 +146,7 @@ if ($search!==""){
     echo '</section>';
   }
   }else {
-    echo '<p class="centered_heading">No results found for<strong>' . htmlspecialchars($search) . '</strong></p>';
+    echo '<p class="centered_heading">No results found for <strong>' . htmlspecialchars($search) . '</strong></p>';
   }
   mysqli_close($dbconn);
 } else {
