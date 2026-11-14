@@ -7,8 +7,8 @@ include("inc/header.inc");
       <h2><em>"Powering a Cleaner Tomorrow through smart technology"</em></h2>
       <p>Description: Ecopower is such a great company to provide smart renewable energy solutions dedicated to powering a sustainable and greener future through innovative technology.</p>
       <div class="hero-btn-grp" >
-     <a href="about.php" class="hero-btn">Explore Projects</a>
-      <a href="jobs.php" class="hero-btn">Join our Team</a>
+     <a href="jobs.php" class="hero-btn">Explore Projects</a>
+      <a href="apply.php" class="hero-btn">Join our Team</a>
     </div>
     </section>
 

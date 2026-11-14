@@ -18,7 +18,7 @@ include('inc/header.inc');
     min-height: 100vh;
   }
   main {
-    flex: 1; /* Expands to fill empty space so the footer stays at the bottom */
+    flex: 1;
   }
   </style>
 
@@ -41,11 +41,11 @@ include('inc/header.inc');
       $search = trim($_GET['query']);
     } 
 $lower_search = strtolower($search);
-if($lower_search === "job" || $lower_search === "jobs" || $lower_search === "view jobs" || $lower_search === "vacancy" || $lower_search === "job listings" || $lower_search === "job openings" || $lower_search === "job opportunities" || $lower_search === "job vacancies" || $lower_search === "job positions" || $lower_search === "job roles" || $lower_search === "job descriptions" || $lower_search === "job details" || $lower_search === "job information") {
+if($lower_search === "job" || $lower_search === "jobs" || $lower_search === "view jobs" || $lower_search === "vacancy" || $lower_search === "vacancies" || $lower_search === "job listing" || $lower_search === "job listings" || $lower_search === "job opening" || $lower_search === "job openings" || $lower_search === "job opportunity" || $lower_search === "job opportunities" || $lower_search === "job vacancy" || $lower_search === "job vacancies" || $lower_search==="job position" || $lower_search === "job positions" || $lower_search === "job role" || $lower_search === "job roles" || $lower_search === "job description" || $lower_search === "job descriptions" || $lower_search === "job detail" || $lower_search === "job details" || $lower_search === "job information" || $lower_search === "job informations" || $lower_search === "description" || $lower_search === "essential and preferable requirements" || $lower_search === "key responsibilities" || $lower_search === "responsibilities" || $lower_search === "requirements" || $lower_search === "descriptions" || $lower_search === "responsibility" || $lower_search === "job reference number" || $lower_search === "job reference numbers" || $lower_search === "job ref" || $lower_search === "job refs" || $lower_search === "salary" || $lower_search === "salaries" || $lower_search === "position reports to" || $lower_search === "position report to" || $lower_search === "position reports" || $lower_search === "position report" || $lower_search === "position" || $lower_search === "positions") {
 mysqli_close($dbconn);
 header("Location: jobs.php");
 exit();
-}elseif($lower_search === "apply" || $lower_search === "apply for job" || $lower_search === "application" || $lower_search === "apply for a job" || $lower_search === "apply job" || $lower_search === "apply for a role" || $lower_search === "apply for a vacancy" || $lower_search === "apply for a job position" || $lower_search === "apply for a job role" || $lower_search === "apply for a job vacancy") {
+}elseif($lower_search === "apply" || $lower_search === "apply for job" || $lower_search === "application" || $lower_search === "apply for a job" || $lower_search === "apply job" || $lower_search === "apply for a role" || $lower_search === "apply for a vacancy" || $lower_search === "apply for a job position" || $lower_search === "apply job" || $lower_search === "apply for a job vacancy" ||  $lower_search === "apply for jobs") {
 mysqli_close($dbconn);
 header("Location: apply.php");
 exit();
