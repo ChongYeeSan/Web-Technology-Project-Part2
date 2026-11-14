@@ -83,11 +83,11 @@ include("inc/header.inc");
     $sort = isset($_GET['sort']) ? trim($_GET['sort']) : "EOInumber";
 
     if ($job_ref !== "" && $applicant_name !== "") {
-        $query = "SELECT * FROM eoi WHERE job_ref LIKE '%$job_ref%' AND (first_name LIKE '%$applicant_name%' OR last_name LIKE '%$applicant_name%') ORDER BY $sort ASC";
+        $query = "SELECT * FROM eoi WHERE job_ref LIKE '%$job_ref%' AND (first_name LIKE '%$applicant_name%' OR last_name LIKE '%$applicant_name%' OR CONCAT(first_name, ' ', last_name) LIKE '%$applicant_name%') ORDER BY $sort ASC";
     } elseif ($job_ref !== "") {
         $query = "SELECT * FROM eoi WHERE job_ref LIKE '%$job_ref%' ORDER BY $sort ASC";
     }elseif ($applicant_name !== "") {
-        $query = "SELECT * FROM eoi WHERE first_name LIKE '%$applicant_name%' OR last_name LIKE '%$applicant_name%' ORDER BY $sort ASC";
+        $query = "SELECT * FROM eoi WHERE first_name LIKE '%$applicant_name%' OR last_name LIKE '%$applicant_name%' OR CONCAT(first_name, ' ', last_name) LIKE '%$applicant_name%' ORDER BY $sort ASC";
     } else {
         $query = "SELECT * FROM eoi ORDER BY $sort ASC";
     }
