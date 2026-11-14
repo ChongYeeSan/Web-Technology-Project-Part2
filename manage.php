@@ -168,10 +168,14 @@ include("inc/header.inc");
 <?php endif; ?>
 
 
-<div style="clear: both; height: 400px;"></div>
-
 
 <?php
 mysqli_close($dbconn);
+?>
+<div class="ack">
+    <p><strong>Acknowledgment part:</strong>
+        We would like to take this opportunity to acknowledge the W3school, Gemini, Chatgpt and Jobstreet to take job details and help with the code.</p>
+</div>
+<?php
 include("inc/footer.inc");
 ?>
